@@ -1,36 +1,36 @@
+const attributeList = [
+  ['Resistence', '70'],
+  ['Armor', '0'],
+  ['Fire Damage', '60'],
+  ['Immunity', 'Fire'],
+  ['Immunity', 'Human Weapon'],
+];
+
 async function run() {
-    const { create } = await import('ipfs-http-client');
-    const ipfs = await create();
-    
-    // we added three attributes, add as many as you want!
-    const metadata = {
-        path: '/',
-        content: JSON.stringify({
-            name: "My First NFT",
-            attributes: [
-            {
-                "trait_type": "Peace",
-                "value": "10" 
-            },
-            {
-                "trait_type": "Love",
-                "value": "100"
-            },
-            {
-                "trait_type": "Web3",
-                "value": "1000"
-            }
-            ],
-            // update the IPFS CID to be your image CID
-            image: "https://ipfs.io/ipfs/QmQ2wnwaFJ1w42UTywTWpM8RgiqrWwKFR6AMrpyiHPgi3p",
-            description: "So much PLW3!"
-        })
-    };
+  const { create } = await import('ipfs-http-client');
+  const ipfs = create();
 
-    const result = await ipfs.add(metadata);
-    console.log(result);
+  const attributes = attributeList.map((attribute) => ({
+    trait_type: attribute[0],
+    value: attribute[1],
+  }));
 
-    process.exit(0);
+  const metadata = {
+    path: '/',
+    content: JSON.stringify({
+      name: 'Drac000',
+      attributes,
+      image: 'QmPnnVRxNRcAhfLBQ5bVepB3Wmj3ovG97iuy8MTV9KHBdT',
+      description: 'A rare drag0n f0und at the abyss',
+    }),
+  };
+
+  console.log(metadata);
+
+  const result = await ipfs.add(metadata);
+  console.log(result);
+
+  process.exit(0);
 }
 
 run();
