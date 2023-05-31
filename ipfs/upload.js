@@ -20,7 +20,7 @@ async function run() {
     content: JSON.stringify({
       name: 'Drac000',
       attributes,
-      image: 'QmPnnVRxNRcAhfLBQ5bVepB3Wmj3ovG97iuy8MTV9KHBdT',
+      image: 'https://ipfs.io/ipfs/QmPnnVRxNRcAhfLBQ5bVepB3Wmj3ovG97iuy8MTV9KHBdT',
       description: 'A rare drag0n f0und at the abyss',
     }),
   };

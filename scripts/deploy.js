@@ -11,7 +11,7 @@ async function main() {
   // mint one to yourself!
   const signer0 = await ethers.provider.getSigner(0);
   // update the IPFS CID to be your metadata CID
-  await nft.safeMint(await signer0.getAddress(), "ipfs://QmNwLeLX7KvW82UFt45pGnweqjV1wQjBfY3Rizn7JEoxXV");
+  await nft.safeMint(await signer0.getAddress(), "ipfs://QmeQGHnRGc3kMA95KNragZWBHC2h5ug1E7DkF4tSVnPCQc");
 
   console.log("NFT Minted!");
 }
